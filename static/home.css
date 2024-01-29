@@ -1,0 +1,18 @@
+.button-img {
+    border: none;
+    padding: 0;
+    margin: 5px;
+    width: 150px;
+    height: auto;
+}
+
+.button-img img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

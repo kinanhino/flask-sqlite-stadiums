@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Football Stadiums</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
 <body>
-
+    <div class="container">
+        {% for stadium in stadiums %}
+            <button class="button-img" onclick="window.location.href='{{ url_for('stadium_details', stadium_id=stadium.id) }}'">
+                <img src="{{ stadium.image_url }}" alt="{{ stadium.name }}">
+            </button>
+        {% endfor %}
+    </div>
 </body>
 </html>
