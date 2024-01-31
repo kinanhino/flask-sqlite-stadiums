@@ -1,3 +1,4 @@
+/* Reset margin and padding */
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +10,20 @@ body {
     line-height: 1.6;
     padding: 20px;
     background-color: #f4f4f4;
+    color: #fff
 }
 
 nav {
-    background-color: #333;
+    background-color: #000; /* Black background */
     color: white;
-    padding: 10px 0;
+    padding: 15px 0; /* Increased padding */
     text-align: center;
+    border-radius: 10px; /* Rounded corners */
 }
 
 nav ul {
     list-style: none;
+    padding: 0; /* Remove default padding */
 }
 
 nav ul li {
@@ -28,27 +32,38 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: white; /* White text for links */
     text-decoration: none;
     font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: #ddd;
+    color: #ddd; /* Lighter color on hover */
 }
 
 #content {
     margin-top: 20px;
 }
 
-footer {
-    margin-top: 20px;
+footer, .home-footer, .login-footer {
+    background-color: #000; /* Black background for footers */
+    color: white; /* White text */
     text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: white;
+    padding: 20px 0; /* Adjusted padding */
+    border-radius: 10px; /* Rounded corners */
+    font-style: italic; /* Example of additional styling */
 }
 
 footer p {
     margin: 0;
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+label {
+    color: #fff
 }

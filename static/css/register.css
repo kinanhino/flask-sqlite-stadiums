@@ -1,0 +1,48 @@
+@import url('home.css');
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjust as needed */
+}
+
+/* Style for the form */
+form {
+    background-color: rgba(0, 64, 133, 0.8); /* Semi-transparent blue background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Maximum width of the form */
+    width: 100%; /* Make it responsive */
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+form label,
+form input[type="text"],
+form input[type="password"],
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px; /* Space between fields */
+}
+
+form input[type="submit"] {
+    background-color: #333; /* Dark background for submit button */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #444; /* Slightly lighter on hover */
+}
+
+/* Error message style */
+form p {
+    color: red;
+    text-align: center;
+}

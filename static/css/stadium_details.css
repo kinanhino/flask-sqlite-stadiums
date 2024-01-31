@@ -1,0 +1,169 @@
+/* Inherit styles from home.css */
+@import url('home.css');
+
+.stadium-info {
+    text-align: center;
+    margin-top: 20px;
+    /* Other styles */
+}
+
+.stadium-details {
+    background-color: rgba(0, 64, 133, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 80%; /* Adjust as per design needs */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 1);
+    /* Other styles */
+}
+
+.stadium-info img {
+    width: 800px; 
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.stadium-info p, .stadium-details p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    width: auto;
+}
+
+
+.stadium-info h1 {
+    color: rgba(0, 64, 133, 0.8);
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+.stadium-details, .stadium-info p {
+    max-width: 90%; 
+    margin: 20px auto;
+}
+
+
+.star-rating {
+    direction: rtl; /* Right-to-left to fill stars from right to left */
+    font-size: 0; /* Removes space between inline-block elements */
+}
+
+.star-rating .star {
+    display: none; /* Hide the radio buttons */
+}
+
+.star-rating label {
+    font-size: 30px; /* Size of the stars */
+    color: #ddd; /* Color of unselected stars */
+    cursor: pointer;
+}
+
+.star-rating label:before {
+    content: "\2605"; /* Unicode star */
+    display: inline-block;
+}
+
+.star-rating input:checked ~ label {
+    color: gold; /* Color of selected stars */
+}
+
+.user-review form {
+    padding: 15px;
+    background-color: rgba(0, 64, 133, 0.8);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 10px 20%;
+
+}
+
+
+.user-review input[type="areatext"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    color: #fff;
+    background-color: #000000;
+    font: bold;
+    
+    border-radius: 4px;
+}
+
+.user-review input[type="submit"] {
+    width: 15%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    color: #fff;
+    background-color: #000000;
+    font: bold;
+    
+    border-radius: 4px;
+}
+.user-review .star-rating {
+    margin-bottom: 10px;
+}
+
+.user-review label {
+    color: #fff;
+    margin: auto 2px;
+}
+
+
+
+.stadium-reviews {
+    padding: 20px;
+    background-color: rgba(248, 218, 51, 0.624);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.stadium-review {
+    background-color: rgba(0, 64, 133, 0.8);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 20%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: #fff;
+
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.review-stars {
+    color: gold;
+    font-size: 20px;
+}
+
+.review-stars .star {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.review-text {
+    line-height: 1.6;
+}
+.flash-error {
+    background-color: rgba(255, 0, 0, 0.8); /* Red background with transparency */
+    color: white; /* White text color */
+    padding: 10px; /* Padding around the message */
+    border-radius: 5px; /* Rounded corners */
+    position: fixed; /* Stick to the upper right corner */
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1000; /* Ensure it's on top of other content */
+}

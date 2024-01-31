@@ -1,13 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ stadium.name }}</title>
-</head>
-<body>
-    <h1>{{ stadium.name }}</h1>
-    <img src="{{ stadium.image_url }}" alt=" {{ stadium.name }} ">
-    <p>{{ stadium.general_info }}</p>
+{% extends "base.html" %}
+{% block title %}{{ stadium.name }}{% endblock %}
 
-</body>
-</html>
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stadium_details.css') }}">
+{% endblock %}
+
+{% block content %}
+    {% for message in get_flashed_messages() %}
+        <div class="flash-error">{{ message }}</div>
+    {% endfor %}
+    <div class="stadium-info">
+        <h1>{{ stadium.name }}</h1>
+        <img src="{{ stadium.image_url }}" alt="{{ stadium.name }}">
+
+        <div class="stadium-details">
+            <p><strong>{{ stadium.general_info }}</strong></p>
+            <p><strong>Capacity:</strong> {{ stadium.capacity }}</p>
+            <p><strong>Dimensions:</strong> {{ stadium.dimensions }}</p>
+            <p><strong>Year Established:</strong> {{ stadium.year_established }}</p>
+            <p><strong>Maintenance Company:</strong> {{ stadium.maintenance_company }}</p>
+        </div>
+    </div>
+    <br>
+    <div class="stadium-reviews">
+    {% for review in reviews %}
+    <div class="stadium-review">
+        <div class="review-header">
+            <span class="reviewer-name">{{ review.user_submitted }}</span>
+            <div class="review-stars">
+                {% for _ in range(review.review_stars) %}
+                    <span class="star">&#9733;</span> <!-- Filled star -->
+                {% endfor %}
+                {% for _ in range(5-review.review_stars) %}
+                    <span class="star">&#9734;</span> <!-- Empty star -->
+                {% endfor %}
+            </div>
+        </div>
+        <p class="review-text">{{ review.review_text }}</p>
+    </div>
+    {% endfor %}
+
+    {% if user_logged %}
+    <div class="user-review">
+        <form method="post" action="{{ url_for('stadium_details', stadium_id=stadium.id) }}">
+            <label for="review-text"><strong>Submit your review here</strong></label>
+            <input type="areatext" id="review-text" name="review-text" required>
+            
+            <label for="review-text"></label>
+            <div class="star-rating">
+                
+                <input id="star5" name="rating" type="radio" value="5" class="star"/>
+                <label for="star5" title="5 stars"></label>
+                <input id="star4" name="rating" type="radio" value="4" class="star"/>
+                <label for="star4" title="4 stars"></label>
+                <input id="star3" name="rating" type="radio" value="3" class="star"/>
+                <label for="star3" title="3 stars"></label>
+                <input id="star2" name="rating" type="radio" value="2" class="star"/>
+                <label for="star2" title="2 stars"></label>
+                <input id="star1" name="rating" type="radio" value="1" class="star"/>
+                <label for="star1" title="1 star"></label>
+            </div>
+            <input type="submit" value="Submit Review">
+        </form>
+    </div>
+    {% endif %}
+{% endblock content %}
+
+{% block footer_class %}home-footer{% endblock %}

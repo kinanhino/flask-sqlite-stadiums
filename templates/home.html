@@ -1,17 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Football Stadiums</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Football Stadiums{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+{% block content %}
     <div class="container">
         {% for stadium in stadiums %}
-            <button class="button-img" onclick="window.location.href='{{ url_for('stadium_details', stadium_id=stadium.id) }}'">
-                <img src="{{ stadium.image_url }}" alt="{{ stadium.name }}">
-            </button>
+            <div class="stadium-item">
+                <h3>{{ stadium.name }}</h3>
+                <button class="button-img" onclick="window.location.href='{{ url_for('stadium_details', stadium_id=stadium.id) }}'">
+                    <img src="{{ stadium.image_url }}" alt="{{ stadium.name }}">
+                </button>
+            </div>
         {% endfor %}
     </div>
-</body>
-</html>
+    <div class="container">
+        <button class="add-stadium-btn" onclick="window.location.href='{{ url_for('add_stadium') }}'">
+            <h3>Add Stadium</h3>
+        </button>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    class="home-footer"
+    {% endblock footer %}

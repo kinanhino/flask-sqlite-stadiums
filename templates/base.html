@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}
+    {% endblock %}
+    <!-- Add other common CSS/JS files here -->
 </head>
 <body>
-$END$
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% if 'username' in session %}
+                <li>Welcome, {{ session.username | default('Guest') }}</li>
+                {% if session.get('is_admin', False) %}
+                    <li><a href="{{ url_for('add_stadium') }}">Add Stadium</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+            <!-- Add more links as needed -->
+        </ul>
+    </nav>
+
+    <div id="content">
+        {% block content %}
+        <!-- Content overridden by child templates will appear here -->
+        {% endblock content %}
+    </div>
+
+    <footer class="{% block footer_class %}{% endblock footer_class %}">
+        <p>© 2024 Kinan Flask App. All rights reserved.</p>
+    </footer>
+
+    <!-- Common JS Scripts -->
+    <!-- Add your common JS files and scripts here -->
 </body>
 </html>

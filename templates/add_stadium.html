@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Stadium To Database</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Add Stadium{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_stadium.css') }}">
+{% endblock %}
+
+{% block content %}
     <form method="post">
         <Label for="name">Stadium Name</Label><br>
         <input type="text" id="name" name="name" required><br>
@@ -26,5 +27,6 @@
 
         <input type="submit" value="Add Stadium">
     </form>
-</body>
-</html>
+{% endblock content %}
+
+{% block footer_class %}login-footer{% endblock %}
