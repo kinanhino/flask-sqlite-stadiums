@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
+
 from views import home, add_stadium,register,login,logout,stadium_details
 
 def configure_routes(app):
