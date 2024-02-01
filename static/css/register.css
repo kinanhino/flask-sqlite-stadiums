@@ -43,6 +43,10 @@ form input[type="submit"]:hover {
 
 /* Error message style */
 form p {
-    color: red;
+    background-color: red;
+    color:#fff;
     text-align: center;
+    border-radius: 5px;
+    border: none;
+
 }

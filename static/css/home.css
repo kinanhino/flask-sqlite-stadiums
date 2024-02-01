@@ -1,7 +1,11 @@
 @import url('nav_foot.css');
 body {
     font-family: 'Arial', sans-serif;
-    background-color: rgba(248, 218, 51, 0.624); /* Gold color with transparency */
+    /*background-color: rgba(248, 218, 51, 0.624);  Gold color with transparency */
+    background-image: url('stad.jpg');
+    background-size: cover; /* This will ensure that your image covers the whole page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-position: center center;
     color: #333; /* Dark gray for text */
     margin: 0;
     padding: 0;
