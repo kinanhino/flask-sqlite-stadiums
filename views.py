@@ -29,28 +29,37 @@ def register():
 
         password = request.form.get('password')
         re_password = request.form.get('re-password')
+        if check_password(password):
 
-        if password != re_password:
-            flash("Passwords must match!","error")
-                  
-        else:
-            username = request.form.get('username')
-            user = User.query.filter_by(username=username).first()
-            print(user)
-            if user:
-                flash("Username already Exists!","error")
+            if password != re_password:
+                flash("Passwords must match!","error")
+                    
             else:
-                new_user = User(
-                    first_name=request.form.get('firstname'),
-                    last_name=request.form.get('lastname'),
-                    username=username,
-                    password=hash_password(password),
-                    #is_admin=1
-                )
-                db.session.add(new_user)
-                db.session.commit()
-                flash("User Successfully Signed Up","info")
-                return redirect(url_for('login'))
+                username = request.form.get('username')
+                if check_username(username):
+                    user = User.query.filter_by(username=username).first()
+                    print(user)
+                    if user:
+                        flash("Username already Exists!","error")
+                    else:
+                        new_user = User(
+                            first_name=request.form.get('firstname'),
+                            last_name=request.form.get('lastname'),
+                            username=username,
+                            password=hash_password(password),
+                            #is_admin=1
+                        )
+                        db.session.add(new_user)
+                        db.session.commit()
+                        flash("User Successfully Signed Up","info")
+                        return redirect(url_for('login'))
+                else:
+                    flash("Username must be Alphanumeric only with atleast 3 chars!","error")
+        else:
+            flash("Password Must Have","error")
+            flash("At least 8 characters long","error")
+            flash("Contains at least one digit","error")
+            flash("Contains at least one special character","error")
 
     return render_template('register.html')
 
@@ -124,3 +133,11 @@ def hash_password(password):
 
 def verify_password(stored_password_hash, user_password):
     return stored_password_hash == hash_password(user_password)
+
+def check_username(username):
+    return len(username) >= 3 and username.isalnum()
+
+def check_password(password):
+    return (len(password) >= 8 and
+            any(char.isdigit() for char in password) and
+            any(not char.isalnum() for char in password))
