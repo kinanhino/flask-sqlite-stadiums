@@ -10,6 +10,7 @@
             <div class="stadium-item">
                 <h3>{{ stadium.name }}</h3>
                 <button class="button-img" onclick="window.location.href='{{ url_for('stadium_details', stadium_id=stadium.id) }}'">
+
                     <img src="{{ stadium.image_url }}" alt="{{ stadium.name }}">
                 </button>
             </div>

@@ -65,6 +65,14 @@
         </form>
     </div>
     {% endif %}
+    {% if not user_logged %}
+        <div class="no-user-review">
+            <form action="{{ url_for('login') }}">
+                <button type="submit">You Must be Logged In Submit a Review</button>
+            </form>
+        </div>
+    {% endif %}
+
 {% endblock content %}
 
 {% block footer_class %}home-footer{% endblock %}

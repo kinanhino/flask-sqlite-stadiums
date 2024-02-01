@@ -23,8 +23,11 @@
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password" required><br>
 
-    <input type="submit" value="Login">
+    <input type="submit" value="Login"><br><br>
+    <a href="{{ url_for('register') }}">Don't have an account?</a>
+
   </form>
+
 {% endblock content %}
 
 {% block footer_class %}login-footer{% endblock footer_class %}

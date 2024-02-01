@@ -32,7 +32,9 @@
         <label for="re-password">Confirm Password</label><br>
         <input type="password" id="re-password" name="re-password" required><br>
 
-        <input type="submit" value="Register">
+        <input type="submit" value="Register"><br>
+        <a href="{{ url_for('login') }}">Already have an account?</a>
+
     </form>
 {% endblock content %}
 
