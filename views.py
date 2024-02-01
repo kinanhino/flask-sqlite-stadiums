@@ -1,8 +1,7 @@
 from flask import render_template, request, redirect,flash,session,url_for
 from models import Stadium,User, Reviews
-from werkzeug.security import check_password_hash
 from utilities import db
-
+import hashlib
 def login():
     if request.method == 'GET':
         return render_template('login.html')
@@ -12,15 +11,15 @@ def login():
         user = User.query.filter_by(username=username).first()
         print(user)
         if user:
-            if password == user.password:
+            if verify_password(user.password, password):
                 session['username'] = username
                 session['is_admin'] = user.is_admin == 1
                 return redirect(url_for('home'))
             else:
-                flash("You've entered incorrect password")
+                flash("You've entered incorrect password","error")
                 return redirect(url_for('login'))
         else:
-            flash("Username does not exist. Try Signing Up First...")
+            flash("Username does not exist. Try Signing Up First...","error")
             return redirect(url_for('login'))
 
 
@@ -32,24 +31,25 @@ def register():
         re_password = request.form.get('re-password')
 
         if password != re_password:
-            flash("Passwords must match!")
+            flash("Passwords must match!","error")
+                  
         else:
             username = request.form.get('username')
             user = User.query.filter_by(username=username).first()
             print(user)
             if user:
-                flash("Username already Exists!")
+                flash("Username already Exists!","error")
             else:
                 new_user = User(
                     first_name=request.form.get('firstname'),
                     last_name=request.form.get('lastname'),
                     username=username,
-                    password=password,
+                    password=hash_password(password),
                     #is_admin=1
                 )
                 db.session.add(new_user)
                 db.session.commit()
-                flash("User Successfully Signed Up")
+                flash("User Successfully Signed Up","info")
                 return redirect(url_for('login'))
 
     return render_template('register.html')
@@ -106,7 +106,7 @@ def stadium_details(stadium_id):
             db.session.add(new_review)
             db.session.commit()
         else:
-            flash("You Must Specify Stars Number")
+            flash("You Must Specify Stars Number","error")
         
         return redirect(url_for('stadium_details', stadium_id=stadium_id))
 
@@ -118,3 +118,9 @@ def get_reviews_for_stadium(stadium_id):
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
+
+def verify_password(stored_password_hash, user_password):
+    return stored_password_hash == hash_password(user_password)

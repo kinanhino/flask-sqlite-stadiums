@@ -10,4 +10,3 @@ def configure_routes(app):
     app.add_url_rule('/register', 'register',register,methods=['POST','GET'])
     app.add_url_rule('/add_stadium', 'add_stadium', add_stadium, methods=['GET', 'POST'])
     app.add_url_rule('/stadium/<stadium_id>', 'stadium_details', stadium_details, methods=['GET', 'POST'])
-    #app.add_url_rule('/add_review', 'add_review', add_review, methods=["GET", "POST"])

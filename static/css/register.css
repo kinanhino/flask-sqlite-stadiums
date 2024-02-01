@@ -9,23 +9,34 @@
 
 /* Style for the form */
 form {
-    background-color: rgba(0, 64, 133, 0.8); /* Semi-transparent blue background */
-    padding: 20px;
+    background-color: rgba(255,215,0, 0.6); /* Semi-transparent blue background */
+    padding: 10px;
+    padding-right: 20px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    max-width: 400px; /* Maximum width of the form */
+    max-width: 300px; /* Maximum width of the form */
     width: 100%; /* Make it responsive */
     box-sizing: border-box;
-    margin: 20px;
+    margin: 5px;
 }
 
-form label,
+form label {
+    display: block;
+    margin-top: 2px; /* Reduced bottom margin */
+    /* Add other styling properties for labels if needed */
+}
+
+/* Style for the form inputs */
 form input[type="text"],
 form input[type="password"],
-form input[type="submit"] {
+form input[type="number"], /* Including number inputs */
+form textarea { /* Including textarea inputs */
     display: block;
+    border-radius: 5px;
     width: 100%;
-    margin-bottom: 10px; /* Space between fields */
+/* Added top margin */
+    height: 30px;
+    /* Add other input styling properties if needed */
 }
 
 form input[type="submit"] {
@@ -35,15 +46,31 @@ form input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
+
+}
+
+form textarea {
+    height: auto; /* Let the height be determined by the content */
+    min-height: 60px; /* Minimum height to ensure enough space for text */
 }
 
 form input[type="submit"]:hover {
     background-color: #444; /* Slightly lighter on hover */
 }
 
-/* Error message style */
-form p {
+
+form .alert-error {
     background-color: red;
+    color:#fff;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+
+}
+
+form .alert-info {
+    background-color: greenyellow;
     color:#fff;
     text-align: center;
     border-radius: 5px;

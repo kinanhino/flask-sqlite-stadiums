@@ -14,7 +14,7 @@ body {
 }
 
 nav {
-    background-color: #000; /* Black background */
+    background-color: rgba(255,215,0, 0.8); /* Black background */
     color: white;
     padding: 15px 0; /* Increased padding */
     text-align: center;
@@ -45,8 +45,8 @@ nav ul li a:hover {
     margin-top: 20px;
 }
 
-footer, .home-footer, .login-footer {
-    background-color: #000; /* Black background for footers */
+footer, .home-footer, .login-footer, .register-footer{
+    background-color: rgba(255,215,0, 0.8); /* Black background for footers */
     color: white; /* White text */
     text-align: center;
     padding: 20px 0; /* Adjusted padding */
@@ -58,7 +58,7 @@ footer p {
     margin: 0;
 }
 
-.login-footer {
+.login-footer, .register-footer {
     position: absolute;
     bottom: 0;
     width: 100%;

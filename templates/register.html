@@ -7,9 +7,15 @@
 
 {% block content %}
     <form method="post">
-        {% for message in get_flashed_messages() %}
-            <p>{{ message }}</p>
-        {% endfor %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
 
         <label for="firstname">First Name</label><br>
         <input type="text" id="firstname" name="firstname" required><br>
@@ -30,4 +36,4 @@
     </form>
 {% endblock content %}
 
-{% block footer_class %}login-footer{% endblock %}
+{% block footer_class %}register-footer{% endblock %}

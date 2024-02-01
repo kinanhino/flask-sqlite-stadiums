@@ -8,7 +8,7 @@
 }
 
 .stadium-details {
-    background-color: rgba(0, 64, 133, 0.8);
+    background-color: rgba(255,215,0, 0.5);
     padding: 10px;
     border-radius: 10px;
     margin: 20px auto;
@@ -35,7 +35,7 @@
 
 
 .stadium-info h1 {
-    color: rgba(0, 64, 133, 0.8);
+    color: rgba(255,215,0, 0.8);
     margin-bottom: 20px;
 }
 
@@ -67,12 +67,12 @@
 }
 
 .star-rating input:checked ~ label {
-    color: gold; /* Color of selected stars */
+    color: rgb(127, 145, 226); /* Color of selected stars */
 }
 
 .user-review form {
     padding: 15px;
-    background-color: rgba(0, 64, 133, 0.8);
+    background-color: rgba(255,215,0, 0.5);
     border: 1px solid #000000;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -97,7 +97,7 @@
     width: 15%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #000000;
+    border: 1px solid rgba(255,215,0, 0.8);
     color: #fff;
     background-color: #000000;
     font: bold;
@@ -123,7 +123,7 @@
 }
 
 .stadium-review {
-    background-color: rgba(0, 64, 133, 0.8);
+    background-color: rgba(255,215,0, 0.5);
     border-radius: 5px;
     padding: 15px;
     margin: 20px 20%;
@@ -145,7 +145,7 @@
 }
 
 .review-stars {
-    color: gold;
+    color: rgb(127, 145, 226);
     font-size: 20px;
 }
 
@@ -169,10 +169,12 @@
 }
 .stadium-reviews h3 {
     color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    text-align: center;
-    margin-left: 47%;
-}
+    margin: 0 auto 10px; /* Center the element and add margin at the bottom */
+    text-align: center; /* Center the text inside the h3 */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px;
+    background-color: rgba(255,215,0, 0.5);
+    display: inline-block;
+    margin-left: 48%
+}   
+
