@@ -47,8 +47,6 @@ Before you begin, make sure you have the following prerequisites installed:
 Access the application in your web browser.
 Browse the list of stadiums.
 Log in or register to leave reviews.
-Folder Structure
-The project's folder structure:
 
 
 ### Database
