@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
-app.secret_key = os.getenv('SECRET_KEY','just-put-some-default-key-here')
+app.secret_key = os.getenv('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///stadiums.db'
 
 db.init_app(app)
