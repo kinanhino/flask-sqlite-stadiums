@@ -9,15 +9,8 @@ The Stadiums Review App is a Flask-based web application that allows users to vi
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Configuration](#configuration)
 - [Database](#database)
-- [Routes](#routes)
-- [Templates](#templates)
-- [Styling](#styling)
 - [Admin Access](#admin-access)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -60,9 +53,6 @@ The project's folder structure:
 
 ### Database
 The application uses SQLite for the database. The database schema and migrations are managed using Flask-Migrate.
-
-### Routes
-The available routes in the application include:
 
 ### Admin Access
 To access admin features (adding, removing, or editing stadiums), use the following credentials:
