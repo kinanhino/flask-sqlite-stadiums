@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Edit Stadium{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_stadium.css') }}">
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+        <div class="form-group">
+            <Label for="name">Stadium Name</Label><br>
+            <input type="text" id="name" name="name" value="{{ stadium.name }}" required><br>
+
+            <Label for="image_url">Stadium Image Url</Label><br>
+            <textarea id="image_url" name="image_url" required>{{ stadium.image_url }}</textarea><br>
+            
+            <Label for="capacity">Capacity</Label><br>
+            <input type="number" id="capacity" name="capacity" min="0" value="{{ stadium.capacity }}" required><br>
+
+            <Label for="dimensions">Dimensions</Label><br>
+            <input type="text" id="dimensions" name="dimensions" value="{{ stadium.dimensions }}" required><br>
+
+            <Label for="general_info">General Information</Label><br>
+            <textarea id="general_info" name="general_info" required>{{ stadium.general_info }}</textarea><br>
+
+            <Label for="year_established">Year Established</Label><br>
+            <input type="number" id="year_established" name="year_established" min="1700" max="2024" value="{{ stadium.year_established }}" required><br>
+      
+            <Label for="maintenance_company">Maintenance Company</Label><br>
+            <input type="text" id="maintenance_company" name="maintenance_company" value="{{ stadium.maintenance_company }}"><br>
+
+            <input type="submit" value="Save Changes">
+         </div>
+    </form>
+         
+{% endblock content %}
+
+{% block footer_class %}home-footer{% endblock %}

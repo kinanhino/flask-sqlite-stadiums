@@ -7,26 +7,32 @@
 
 {% block content %}
     <form method="post">
-        <Label for="name">Stadium Name</Label><br>
-        <input type="text" id="name" name="name" required><br>
+        <div class="form-group">
+            <Label for="name">Stadium Name</Label><br>
+            <input type="text" id="name" name="name" required><br>
 
-        <Label for="name">Stadium Image Url</Label><br>
-        <textarea id="image_url" name="image_url" required></textarea><br>
+            <Label for="image_url">Stadium Image Url</Label><br>
+            <textarea id="image_url" name="image_url" required></textarea><br>
+            
+            <Label for="capacity">Capacity</Label><br>
+            <input type="number" id="capacity" name="capacity" min="0" required><br>
 
-        <Label for="club_owner">Club Owner</Label><br>
-        <input type="text" id="club_owner" name="club_owner" required><br>
+            <Label for="dimensions">Dimensions</Label><br>
+            <input type="text" id="dimensions" name="dimensions" required><br>
 
-        <Label for="general_info">General Information</Label><br>
-        <textarea id="general_info" name="general_info" required></textarea><br>
+            <Label for="general_info">General Information</Label><br>
+            <textarea id="general_info" name="general_info" required></textarea><br>
 
-        <Label for="year_established">Year Established</Label><br>
-        <input type="number" id="year_established" name="year_established" min="1700" max="2024" required><br>
+            <Label for="year_established">Year Established</Label><br>
+            <input type="number" id="year_established" name="year_established" min="1700" max="2024" required><br>
+      
+            <Label for="maintenance_company">Maintenance Company</Label><br>
+            <input type="text" id="maintenance_company" name="maintenance_company"><br>
 
-        <Label for="maintenance_company">Maintenance Company</Label><br>
-        <input type="text" id="maintenance_company" name="maintenance_company"><br>
-
-        <input type="submit" value="Add Stadium">
+            <input type="submit" value="Add Stadium">
+         </div>
     </form>
+         
 {% endblock content %}
 
-{% block footer_class %}login-footer{% endblock %}
+{% block footer_class %}home-footer{% endblock %}

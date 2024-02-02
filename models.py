@@ -22,7 +22,7 @@ class User(db.Model):
 
 class Reviews(db.Model):
     review_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    stadium_id = db.Column(db.Integer,nullable=False)
+    stadium_id = db.Column(db.Integer, db.ForeignKey('stadium.id'), nullable=False)
     user_submitted = db.Column(db.String(50), nullable=False)
     review_text = db.Column(db.Text, nullable=False)
     review_stars = db.Column(db.Integer,nullable=False, default=1)

@@ -45,7 +45,7 @@
     <div class="user-review">
         <form method="post" action="{{ url_for('stadium_details', stadium_id=stadium.id) }}">
             <label for="review-text"><strong>Submit your review here</strong></label>
-            <input type="areatext" id="review-text" name="review-text" required>
+            <textarea id="review-text" name="review-text" required></textarea>
             
             <label for="review-text"></label>
             <div class="star-rating">

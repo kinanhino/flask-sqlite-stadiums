@@ -80,4 +80,16 @@ body {
     background-color: rgba(235, 202, 13, 0.8); /* Even darker blue on hover */
     transform: scale(1.05);
 }
+form {
+    display: inline;
+}
 
+form .container-delete-button{
+    width: 25px; 
+    height: 25px; cursor: pointer; background-color: red; color: white;
+}
+
+form .container-edit-button{
+    width: 25px; 
+    height: 25px; cursor: pointer; background-color: rgb(255, 221, 0); color: white;
+}

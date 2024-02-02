@@ -47,6 +47,8 @@
 
 
 .star-rating {
+    text-align: center;
+    margin-bottom: 10px;
     direction: rtl; /* Right-to-left to fill stars from right to left */
     font-size: 0; /* Removes space between inline-block elements */
 }
@@ -81,29 +83,47 @@
 }
 
 
-.user-review input[type="areatext"] {
-    width: 100%;
+.user-review textarea {
+    width: 100%; /* Adjust width to fit form */
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #000000;
-    color: #fff;
-    background-color: #000000;
-    font: bold;
-    
+    border: 2px solid #080707;
+    background-color: #ffffff; /* For better readability */
+    color: #000; /* Dark text on light background */
+    font-family: Arial, sans-serif; /* Ensure text is readable */
     border-radius: 4px;
+    height: 100px;
+    resize: vertical; /* Allow vertical resizing */
+
+    border-radius: 4px;
+}
+.user-review {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centralize the form items */
+    padding: 15px;
+    background-color: rgba(255,215,0, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 500px; /* Adjust based on your design preference */
+    margin: 0 auto; /* Centralize the form */
 }
 
 .user-review input[type="submit"] {
-    width: 15%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid rgba(255,215,0, 0.8);
-    color: #fff;
-    background-color: #000000;
-    font: bold;
-    
-    border-radius: 4px;
-}
+        width: auto; /* Let it size according to its content */
+        padding: 10px 20px; /* More horizontal padding for a better button shape */
+        margin-top: 10px; /* Space above the submit button */
+        cursor: pointer; /* Indicate it's clickable */
+        border-radius: 5px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.6);
+
+    }
+
+.user-review input[type="submit"]:hover {
+    background-color: rgba(0,0,0, 1);
+    }
+
 .user-review .star-rating {
     margin-bottom: 10px;
 }
@@ -174,7 +194,7 @@
     border-radius: 5px; /* Rounded corners */
     position: fixed; /* Stick to the upper right corner */
     top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
+    right: 43%; /* Adjust the right position as needed */
     z-index: 1000; /* Ensure it's on top of other content */
 }
 .stadium-reviews h3 {

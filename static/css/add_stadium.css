@@ -5,7 +5,7 @@ form textarea {
     width: 100%; /* Full width */
     height: 60px; /* Adjustable height */
     padding: 10px; /* Comfortable padding */
-    border: 2px solid #4CAF50; /* Consistent with your design */
+    border: 2px solid #66afe9; /* Consistent with your design */
     border-radius: 5px; /* Rounded corners */
     background-color: #f8f8f8; /* Light background */
     font-size: 14px; /* Readable text size */
@@ -37,13 +37,15 @@ form input[type="number"] {
     width: 100%; /* Full width */
     height: 30px; /* Comfortable height */
     padding: 5px 10px; /* Padding for text */
-    border: 2px solid #4CAF50; /* Consistent with your design */
-    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #66afe9; /* Consistent with your design */
     background-color: #fff; /* White background */
     font-size: 14px; /* Readable text size */
     font-family: Arial, sans-serif; /* Consistent font */
     color: #333; /* Dark text for readability */
     box-sizing: border-box; /* Includes padding and border in the width */
+}
+form input[type="text"] {
+    border: 2px solid #66afe9; /* Consistent with your design */
 }
 
 /* Input Number Focus State */

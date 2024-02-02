@@ -131,6 +131,45 @@ def logout():
     return redirect(url_for('login'))
 
 
+def delete_stadium(stadium_id):
+    if request.method == 'POST':
+        stadium = Stadium.query.filter(Stadium.id == int(stadium_id)).first()
+        if stadium:
+            db.session.delete(stadium)
+            db.session.commit()
+    else:
+        flash('trying to access with the wrong method!', 'error')
+    return redirect(url_for('home'))
+
+def edit_stadium(stadium_id):
+    if request.method == 'POST':
+        stadium = Stadium.query.get_or_404(stadium_id)
+        stadium.name = request.form.get('name')
+        stadium.image_url=request.form.get('image_url')
+        stadium.capacity=request.form.get('capacity')
+        stadium.general_info=request.form.get('general_info')
+        stadium.year_established=request.form.get('year_established')
+        stadium.maintenance_company=request.form.get('maintenance_company')
+        stadium.dimensions=request.form.get('dimensions')
+        
+        db.session.commit()
+        return redirect(url_for('home'))
+    else:
+        stadium = Stadium.query.filter(Stadium.id == int(stadium_id)).first()
+
+        stadium.capacity = make_int(stadium.capacity)
+        stadium.year_established = make_int(stadium.year_established)
+        return render_template('edit_stadium.html', stadium=stadium)
+
+def make_int(text):
+    if isinstance(text, str):
+        if ',' in text:
+            return int(text.replace(',', ''))
+        else:
+            return int(text)
+    else:
+        return text
+
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
@@ -149,5 +188,3 @@ def check_password(password):
             any(not char.isalnum() for char in password))
 
 
-def delete_stadium(stadium_id):
-    pass
