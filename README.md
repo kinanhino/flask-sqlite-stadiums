@@ -42,6 +42,8 @@ Before you begin, make sure you have the following prerequisites installed:
 
     SECRET_KEY=fjlhfewfhewkjfhwefewfkjbvdcsakdlwkjwodcvckxk
 
+3. Run the app.py
+
 
 ### Usage
 Access the application in your web browser.
