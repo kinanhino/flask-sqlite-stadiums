@@ -27,7 +27,7 @@ Follow these instructions to set up and run the Stadiums Review App on your loca
 
 Before you begin, make sure you have the following prerequisites installed:
 
-- Python (>=3.6)
+- Python (>=3.9)
 - Flask
 - Flask-SQLAlchemy
 - Flask-Migrate
@@ -38,11 +38,7 @@ Before you begin, make sure you have the following prerequisites installed:
 
     git clone https://github.com/yourusername/stadiums-review-app.git
 
-2. Create a .env file with the following content:
-
-    SECRET_KEY=fjlhfewfhewkjfhwefewfkjbvdcsakdlwkjwodcvckxk
-
-3. Run the app.py
+2. Run the app.py
 
 
 ### Usage
